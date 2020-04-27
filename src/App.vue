@@ -4,6 +4,9 @@
     <transition name="fade">
       <p v-if="show">hello</p>
     </transition>
+    <transition name="slide">
+      <p>bye</p>
+    </transition>
   </div>
 </template>
 
@@ -26,7 +29,7 @@ export default{
 }
 .fade-enter-active{
 
-  transition: opacity 2s;
+  transition: opacity 0.5s;
 }
 .fade-enter-to{
 
@@ -38,11 +41,36 @@ export default{
 }
 .fade-leave-active{
 
-  transition: opacity 2s;
+  transition: opacity 0.5s;
 }
 .fade-leave-to{
 
   opacity: 1;
+}
+
+
+.slide-enter-active{
+
+  animation: slidein 0.5s
+}
+.slide-enter-to{
+
+  opacity: 1;
+}
+
+.slide-leave-active{
+
+  animation: slide-in 0.5s reverse;
+}
+
+
+@keyframes slide-in{
+  from{
+    transform: translateX(100px);
+  }
+  to{
+    transform: translateX(0);
+  }
 }
 
 .main{
